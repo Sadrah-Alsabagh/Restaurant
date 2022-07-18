@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="./asset/food.jpg">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
+    <title>Crispy Restaurant</title>
+
+    <style>  
+      .navbar {
+        overflow: hidden;
+        background-color:#04AA6D;
+        position: fixed;
+        top: 0;
+        width: 100%;
+      }
+      
+      .navbar a {
+        float: left;
+        display: block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+      }
+      
+      .navbar a:hover {
+        background: #ddd;
+        color: black;
+      }
+      </style>
+  </head>
+
+  <body>
+    <header > 
+      <div class="navbar">
+        <a href="./index.html">Home</a>         
+        <a href="./about.html">About</a>
+        <a href="./statistics .html">Statistics</a>
+         <a href="#news">News</a>
+      </div>
+      <p id="logo">Restaurant</p>
+    </header>
+
+    <main>
+          <h1 id="logo">Crispy Restaurant</h1>
+
+        <div class="container">
+            <form action="/action_page.php" id="foodForm">
+              <label for="fname"> Food Name</label>
+              <input type="text" id="foodName" name="foodName" placeholder="Food name..">
+          
+              <label for="foodType">Types of the food</label>
+              <select id="foodType" name="foodType">
+                <option value=" Fruit-and-vegetables."> Fruit and vegetables.</option>
+                <option value="Starchy-Food">Starchy food</option>
+                <option value="dairy">Dairy</option>
+                <option value="protein">Protein</option>
+                <option value="fat">Fat</option>
+
+                 </select>
+              <label for="Price">Price</label>
+              <input type="text" id="foodPrice" name="foodPrice" placeholder="The Price..">
+             
+            
+              <input type="submit" value="Submit">
+            </form>
+          </div>
+
+          <div>
+            <table style="width:100%" id="foodTable" >
+                <tr>
+                  <th>Food ID</th>
+                  <th id="name">Food Name</th>
+                  <th id="type">Food Type</th>
+                  <th id="price">Food Price</th>
+                </tr>
+              </table>
+          </div>
+    </main>
+
+
+
+    <footer >
+      <section>
+        <div>
+          <ul class="social-media">
+            <li>
+              <a href="#"
+                ><ion-icon name="logo-facebook" class="social-icon"></ion-icon
+              ></a>
+            </li>
+
+            <li>
+              <a href="#"
+                ><ion-icon name="logo-instagram" class="social-icon"></ion-icon
+              ></a>
+            </li>
+
+            <li>
+              <a href="#"
+                ><ion-icon name="logo-twitter" class="social-icon"></ion-icon
+              ></a>
+            </li>
+          </ul>
+        </div>
+
+        
+          <h2 style="text-align: center; color: black;">
+            &copy;Copyright
+           
+          </h2>
+        
+      </section>
+
+     
+    </footer>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
