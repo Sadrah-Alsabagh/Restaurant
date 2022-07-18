@@ -13,7 +13,7 @@ function Food(name, type, price) {
 }
 
 const formEl = document.getElementById("foodForm");
-const table = document.getElementById("foodTable");
+
 formEl.addEventListener("submit", handleSubmit);
 
 function handleSubmit(event){
@@ -23,43 +23,25 @@ function handleSubmit(event){
     let foodType = event.target.foodType.value;
     let foodPrice = event.target.foodPrice.value;
 
-   const newFood= new Food(foodName, foodType, foodPrice);
-  
-     console.log(newFood);
-     newFood.render();
-}
+    new Food(foodName, foodType, foodPrice);
+     
+     saveData();
 
-Food.prototype.render = function(){
-  //creat element
-  const trEl = document.createElement("tr");
-  const tdId = document.createElement("th");
-  const tdName = document.createElement("th");
-  const tdType = document.createElement("th");
-  const tdPrice = document.createElement("th");
-  //add content
-  tdId.textContent = this.id;
-  tdName.textContent = `${this.name}`;
-  tdType.textContent = this.type;
-  tdPrice.textContent = `${this.price}`;
-    //append to DOM
-    table.appendChild(trEl)
-
-    trEl.appendChild(tdId);
-    trEl.appendChild(tdName);
-    trEl.appendChild(tdType);
-    trEl.appendChild(tdPrice);
-
-   
-};
-for (let i = 0; i < foodList.length; i++) {
-  foodList[i].render();
 }
 
 
-// You will create an instance each time you submit the form, and fill the object from the form inputs.
+function saveData() {
+  localStorage.setItem("foodList", JSON.stringify(foodList));
+}
 
-//     Create a function to generate a unique four digits for the food id number.
+function getData() {
+  let parsedData = JSON.parse(localStorage.getItem("foodList"));
 
-//     You will add an event listener to get the data from the form instead of having hard-coded data.
+  if (parsedData) {
+    for (let i = 0; i < parsedData.length; i++) {
+      new Food(parsedData[i].name, parsedData[i].type, parsedData[i].price);
+    }
+  }
+}
+getData();
 
-//     You will create a render prototype function to render each food name with their information from the form on the home page as a table view as below.

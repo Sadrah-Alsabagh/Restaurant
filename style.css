@@ -3,6 +3,7 @@ body {
   }
 #logo{
   align-content: center;
+  padding: 30px;
 }
   
   input[type=text], select {
