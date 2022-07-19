@@ -51,3 +51,94 @@ function Food(name, type, price) {
     }
   }
   getData();
+
+  //charts
+  //pie chart
+  //Giving initial value to loop through them and count them
+  const foodType ={
+    fruAndVeg:0,
+    starchyFood:0,
+    dairy:0,
+    protein:0,
+    fat:0
+  };
+  for (let i = 0; i < foodList.length; i++) {
+    if (foodList[i].type === "Fruit-and-vegetables") {
+      foodType.fruAndVeg++;
+    }
+    if (foodList[i].type === "Starchy-Food") {
+      foodType.starchyFood++;
+    }
+    if (foodList[i].type === "dairy") {
+      foodType.dairy++;
+    }
+    if (foodList[i].type === "protein") {
+      foodType.protein++;
+    }
+    if (foodList[i].type === "fat") {
+      foodType.fat++;
+    }
+  }
+  //Returns enumerable properties
+  const typeNames = Object.keys(foodType);
+  //return properties
+const types = Object.values(foodType);
+
+  const pieData = {
+    labels: typeNames,
+    datasets: [
+      {
+        label: "Food Type chart",
+        backgroundColor: ["rgb(255, 99, 132)", "rgb(54, 162, 235)", "'rgb(255, 205, 86)", "#04aa6d", "(FFFF00) "],
+        data: types
+  
+      },
+    ],
+  };
+  
+  const typeConfig = {
+    type: "pie",
+    data: pieData,
+    options: {}
+  };
+  
+  const foodTypeChart = new Chart(
+    document.getElementById("TypeChart"),
+    typeConfig
+    );
+
+
+  //bar chart
+    const names=[];
+    const prices =[];
+    
+  for (let i = 0; i < foodList.length; i++) {
+    names.push(foodList[i].name);
+    prices.push(foodList[i].price);
+  }
+
+
+        const data = {
+          labels: names,
+          datasets: [
+            {
+              label: "Food Price",
+              backgroundColor: "rgb(255, 99, 132)",
+              borderColor: "rgb(255, 99, 132)",
+              data:prices,
+            },
+          ],
+        };
+
+        const config = {
+          type: "bar",
+          data: data,
+        };
+        const PriceChart = new Chart(
+    document.getElementById('priceChart'),
+    config
+  );
+
+
+
+  
